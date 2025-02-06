@@ -1,4 +1,4 @@
-const simConstants = struct {
+pub const simConstants = struct {
     gravity: f16 = 9.8, //m/s2
     density: f32 = 1000.0, //kg/m3
     dynamicViscosity: f32 = 0.000875, //pa/s
@@ -7,9 +7,9 @@ const simConstants = struct {
     rpvWidth: f16 = 5.0, //m
     coreHeight: f16 = 3.5, //m
 
-    pub fn init() simConstants {
+    pub fn init(dynamicViscosity: f32, density: f32) simConstants {
         return simConstants{
-            .kineticViscosity = simConstants.dynamicViscosity / simConstants.density,
+            .kineticViscosity = dynamicViscosity / density,
         };
     }
 };
